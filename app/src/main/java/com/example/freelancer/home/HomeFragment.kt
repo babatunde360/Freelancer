@@ -32,17 +32,12 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = HomeFragmentBinding.inflate(inflater)
-        binding.nextFragment.setOnClickListener {
-            findNavController().navigate(R.id.action_nav_home_to_testFragment)
-        }
-
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-    NavigationUI.setupWithNavController(toolbar,findNavController())
     }
 
 }
