@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/signUpFragment">
+    app:startDestination="@id/onboardingFragmentOne">
 
     <fragment
         android:id="@+id/nav_home"
@@ -31,9 +31,6 @@
         <action
             android:id="@+id/action_signUpFragment_to_nav_home"
             app:destination="@id/nav_home" />
-        <action
-            android:id="@+id/action_signUpFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_search"
@@ -52,4 +49,29 @@
         android:name="com.example.freelancer.messages.MessageFragment"
         android:label="message_fragment"
         tools:layout="@layout/message_fragment" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.freelancer.onboarding.OnboardingFragment"
+        android:label="OnboardingFragment" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_onboardingFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragmentOne"
+        android:name="com.example.freelancer.onboarding.OnboardingFragmentOne"
+        android:label="OnboardingFragmentOne" >
+        <action
+            android:id="@+id/action_onboardingFragmentOne_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
+        <action
+            android:id="@+id/action_onboardingFragmentOne_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_onboardingFragmentOne_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

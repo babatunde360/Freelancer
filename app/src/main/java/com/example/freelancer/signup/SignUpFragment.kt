@@ -38,7 +38,7 @@ private lateinit var auth: FirebaseAuth
     ): View? {
         // Inflate the layout for this fragment
         val navView = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_view)
-        navView?.visibility = INVISIBLE
+        navView?.visibility = View.GONE
          binding = FragmentSignUpBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
@@ -66,9 +66,9 @@ private lateinit var auth: FirebaseAuth
             Toast.makeText(context,viewModel.toastMessage.value.toString(),Toast.LENGTH_SHORT).show()
         }
 
-binding.logInTextView.setOnClickListener {
-    findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
-}
+        binding.goToSignin.setOnClickListener {
+            findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
+        }
 
     }
 }

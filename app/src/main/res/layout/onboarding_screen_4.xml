@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/onboarding_screen_4_background">
@@ -18,17 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/onboarding_screen_title"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/smartphone" />
-
-    <ImageView
-        android:id="@+id/smarphone_chats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/smartphone"
-        app:layout_constraintEnd_toEndOf="@+id/smartphone"
-        app:layout_constraintStart_toStartOf="@+id/smartphone"
-        app:layout_constraintTop_toTopOf="@+id/smartphone"
-        app:srcCompat="@drawable/smarphone_conversation" />
+        app:srcCompat="@drawable/screen_4_smartphone" />
 
     <TextView
         android:id="@+id/onboarding_screen_title"
@@ -48,7 +38,7 @@
         android:id="@+id/onboarding_screen_message"
         android:layout_width="239dp"
         android:layout_height="58dp"
-        android:layout_marginTop="105dp"
+        android:layout_marginBottom="111dp"
         android:ems="15"
         android:text="Chat with other freelancers and develop your network"
         android:textColor="#120E21"
@@ -57,5 +47,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/smartphone"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
