@@ -21,12 +21,12 @@ class OnboardingFragment : Fragment() {
         fun newInstance() = OnboardingFragment()
     }
 
-    private lateinit var viewModel: OnboardingViewModel
+    private lateinit var viewModel: SignInViewModel
     private lateinit var binding: OnboardingFragmentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
         viewModel.isAuthenticated.observe(this, Observer {
             if (it == true){
                 findNavController().navigate(R.id.action_onboardingFragment_to_nav_home)
@@ -48,7 +48,6 @@ class OnboardingFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(OnboardingViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

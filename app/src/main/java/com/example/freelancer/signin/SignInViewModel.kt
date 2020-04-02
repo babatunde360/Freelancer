@@ -35,7 +35,9 @@ class SignInViewModel(app: Application) : AndroidViewModel(app) {
 fun createAccount(){
     signUp(signUpEmail.value.toString(),signUpPassword.value.toString())
 }
-
+    fun signIn(){
+        signIn(signUpEmail.value.toString(),signUpPassword.value.toString())
+    }
    private fun signUp(email: String,password: String){
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener() { task ->
                 if (task.isSuccessful) {
@@ -44,14 +46,28 @@ fun createAccount(){
                     val user = auth.currentUser
                     saveUserName(signUpFirstName.value.toString(),signUpLastName.value.toString())
                     _toastMessage.value = "Successful"
+                    _isAuthenticated.value = true
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     _toastMessage.value = "Failure"
                 }
-
-                // ...
             }
+    }
+
+    private fun signIn(email: String,password: String){
+        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener{task ->
+            if (task.isSuccessful) {
+                // Sign in success, update UI with the signed-in user's information
+                Log.d(TAG, "signInWithEmail:success")
+                _toastMessage.value = "Successful"
+                _isAuthenticated.value = true
+            } else {
+                // If sign in fails, display a message to the user.
+                Log.w(TAG, "signInWithEmail:failure", task.exception)
+                _toastMessage.value = task.exception?.message
+            }
+        }
     }
 
    private fun saveUserName(firstName: String,lastName: String){

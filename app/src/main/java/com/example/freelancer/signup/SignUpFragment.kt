@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.freelancer.R
 import com.example.freelancer.databinding.FragmentSignUpBinding
 import com.example.freelancer.signin.SignInViewModel
@@ -63,13 +64,14 @@ private lateinit var auth: FirebaseAuth
 
         binding.signInButton.setOnClickListener {
             viewModel.createAccount()
-            Toast.makeText(context,viewModel.toastMessage.value.toString(),Toast.LENGTH_SHORT).show()
+            if (viewModel.toastMessage.value != null) {
+                Toast.makeText(context, viewModel.toastMessage.value.toString(), Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
-
         binding.goToSignin.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
         }
-
     }
 }
 
